@@ -1,11 +1,11 @@
 # coding=utf8
 # WA(wechatassistant)
-import itchat,time
+import itchat,time,re
 from itchat.content import *
 from waSFtext import sfCheck,sfContent
 
-# # 获取作为控制器的小号的UserName作为controlaccount
-# ConAcc=''
+# 获取作为控制器的小号的UserName作为controlaccount
+ConAcc='filehelper'
 
 # def waNew():
 #     t = time.asctime(time.localtime(time.time()))
@@ -30,19 +30,39 @@ from waSFtext import sfCheck,sfContent
 #             menuStr=menuStr+v['name']+'：已打开\n'
 #     itchat.send(menuStr,ConAcc)
 
-@itchat.msg_register(TEXT)
+@itchat.msg_register(TEXT,isFriendChat=True, isGroupChat=True)
 def controler(msg):
-    if msg.text=='退出' and msg.fromUserName==ConAcc:
-        print('退出')
-        itchat.send('WechatAssistant 已退出',ConAcc)
-        itchat.logout()
-    elif sfCheck(msg.text):
-        time.sleep(1)
-        msg.user.send('谢谢你的祝福')
-        time.sleep(3)
-        msg.user.send(sfContent())
+    if msg.toUserName == ConAcc or msg.fromUserName == ConAcc:
+        if msg.text=='退出':
+            print('退出')
+            itchat.send('WechatAssistant 已退出',ConAcc)
+            itchat.logout()
+        elif msg.text=='状态':
+            waMenu()
     else:
-        print(msg.content)
+        # 功能权限开关，控制器设置开关，这里先默认春节短信回复始终打开，后面写controler的时候再改
+        if True:
+            # 判断是否群聊消息，感觉随时就要抽象出来单独做函数
+            if re.match('@@',msg.fromUserName):
+                if msg.isAt:
+                    if sfCheck(msg.text,msg.fromUserName):
+                        for content in sfContent(msg.fromUserName):
+                           time.sleep(2) 
+                           msg.user.send(content)
+            else:
+                if sfCheck(msg.text,msg.fromUserName):
+                    for content in sfContent(msg.fromUserName):
+                        time.sleep(2) 
+                        msg.user.send(content)
+
+
+    # elif sfCheck(msg.text):
+    #     time.sleep(1)
+    #     msg.user.send('谢谢你的祝福')
+    #     time.sleep(3)
+    #     msg.user.send(sfContent())
+    # else:
+    #     print(msg.content)
 
 
 # 登录配置
