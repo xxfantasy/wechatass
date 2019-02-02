@@ -22,4 +22,4 @@
 
 效果大概如下：
 
-![春节祝福自动回复示例](https://github.com/xxfantasy/wechat/blob/master/pic/sfexample.JPG){:height="50%" width="50%"}
+![春节祝福自动回复示例](https://github.com/xxfantasy/wechat/blob/master/img/sfexample.PNG)
