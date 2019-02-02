@@ -1,7 +1,7 @@
 # WA=Wechat Assistant
->"微信是一种生活方式"——by 产品经理之神
+>"微信是一种生活方式"——by 产品经理之神
 
-所以有个产品经理认为：你需要一个生活助理，一个bot和/或AI，协助你处理发生在微信上各种事。
+所以有个产品经理认为：你需要一个生活助理，一个bot和/或AI，协助你处理发生在微信上各种事。
 
 ## 安装
 截至20190202用的是开源的[itchat](https://github.com/littlecodersh/ItChat)和纯python3.x
@@ -22,4 +22,4 @@
 
 效果大概如下：
 
-![春节祝福自动回复示例](https://github.com/xxfantasy/wechat/blob/master/img/sfexample.PNG)
+<img src="https://github.com/xxfantasy/wechat/blob/master/img/sfexample.PNG" width=50%>
