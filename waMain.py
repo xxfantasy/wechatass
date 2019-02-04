@@ -39,7 +39,7 @@ def controler(msg):
             itchat.logout()
         elif msg.text=='状态':
             waMenu()
-    else:
+    elif msg.fromUserName != itchat.search_friends()['UserName']:
         # 功能权限开关，控制器设置开关，这里先默认春节短信回复始终打开，后面写controler的时候再改
         if True:
             # 判断是否群聊消息，感觉随时就要抽象出来单独做函数
@@ -54,7 +54,8 @@ def controler(msg):
                     for content in sfContent(msg.fromUserName):
                         time.sleep(2) 
                         msg.user.send(content)
-
+    else:
+        
 
     # elif sfCheck(msg.text):
     #     time.sleep(1)
