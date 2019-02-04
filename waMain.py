@@ -54,7 +54,6 @@ def controler(msg):
                     for content in sfContent(msg.fromUserName):
                         time.sleep(2) 
                         msg.user.send(content)
-    else:
         
 
     # elif sfCheck(msg.text):
