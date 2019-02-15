@@ -54,6 +54,10 @@ def controler(msg):
                     for content in sfContent(msg.fromUserName):
                         time.sleep(2) 
                         msg.user.send(content)
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 1152ae0fa30c97b7a7d3fdb3a3ef0d4a14938e99
 
     # elif sfCheck(msg.text):
     #     time.sleep(1)
