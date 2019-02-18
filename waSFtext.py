@@ -3,7 +3,7 @@ import re,random
 userDic={}
 
 def sfCheck(text,user):
-    sfkw='春节|新春|猪年|新年|除夕|2019'
+    sfkw='春节|新春|猪年|新年|除夕|2019|新的一年'
     if re.search(sfkw,text) is None:
         return False
     else :
