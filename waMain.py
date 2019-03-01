@@ -2,11 +2,12 @@
 # WA(wechatassistant)
 import itchat,time,re
 from itchat.content import *
-from waSFtext,waBZstatus import *
+from waSFtext import *
+from waBZstatus import *
 
 # WA功能配置，后面改sql  
 fncList =[
-        {"id":1,"cname":"春节短信","ename":"waSFtext","status":1},
+        {"id":1,"cname":"春节短信","ename":"waSFtext","status":-1},
         {"id":2,"cname":"忙碌模式","ename":"waBZstatus","status":-1},
     ]
 
@@ -71,7 +72,7 @@ def controler(msg):
 
     # 要处理的消息：发给我的，但不是我发的消息
     elif msg.toUserName == SelfAcc and msg.fromUserName != SelfAcc:
-        # 判断功能开启情况
+        # 判断功能开启
         if fncList[0]["status"]==1:
             # 判断是否群聊消息
             if re.match('@@',msg.fromUserName):

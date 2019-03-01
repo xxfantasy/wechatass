@@ -3,11 +3,11 @@ userDic={}
 
 def waBZstatus_On():
     global userList
-    userList.clear()
+    userDic.clear()
 
 def waBZstatus_Off():
     global userList
-    userList.clear()
+    userDic.clear()
 
 def bzCheck(msg):
     bzContent=[]
